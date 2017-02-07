@@ -21,7 +21,7 @@ export const  loginUser = ({ email, password}) =>{
     return (dispatch) => {
          axios.post(`${ROOT_URL}/user/signin`, {email, password})
             .then(user => loginUserSuccess(dispatch, user))
-            .catch(() => loginUserFail())
+            .catch(() => loginUserFail(dispatch))
     }           
 }
 

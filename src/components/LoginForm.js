@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Text } from 'react-native'
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input,  Button } from './common';
 
@@ -39,6 +40,10 @@ class LoginForm extends Component{
                     />
                 </CardSection>
 
+                <Text style={styles.errorTextStyle}>
+                    {this.props.error}
+                </Text>
+
                 <CardSection>
                     <Button onPress={this.onButtonPress.bind(this)}>
                         Login
@@ -49,12 +54,23 @@ class LoginForm extends Component{
     }
 }
 
-const mapStateToProps = state =>{
+const styles = {
+    errorTextStyle :{
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red'
+    }
+}
+
+// const mapStateToProps = state =>{
+    const mapStateToProps = ({auth}) =>{
     //only return the property from global state that we care about
-    console.log(state)
+    const { email, password, error } = auth
     return {
-        email: state.auth.email,
-        password: state.auth.password
+        
+        email: email,
+        password: password,
+        error: error
     }
 }
 export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser})(LoginForm);
