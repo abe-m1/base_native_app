@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers'
-import LoginForm from './components/LoginForm'
+import Router from './Router'
 
 class App extends Component {
     render(){
@@ -13,7 +13,7 @@ class App extends Component {
         //3rd argument is for store enhancers 
         return(
             <Provider store={store}>
-                <LoginForm />
+                <Router />
             </Provider>
         )
     }
