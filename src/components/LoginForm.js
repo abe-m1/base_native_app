@@ -3,6 +3,12 @@ import { Card, CardSection, Input,  Button } from './common';
 
 
 class LoginForm extends Component{
+    onEmailChange(text){
+
+    }
+    onPasswordChange(text){
+
+    }
     render(){
         return(
             <Card>
@@ -10,6 +16,7 @@ class LoginForm extends Component{
                     <Input 
                         label="Email"
                         placeholder="email@email.com"
+                        onChangeText = {this.onEmailChange.bind(this)}
                     />
                 </CardSection>
 
@@ -18,6 +25,7 @@ class LoginForm extends Component{
                         secureTextEntry
                         label="Password"
                         placeholder="password"
+                        onChangeText = {this.onPasswordChange.bind(this)}
                     />
                 </CardSection>
 
