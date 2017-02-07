@@ -17,9 +17,11 @@ export const passwordChanged = (text) =>{
 }
 
 export const  loginUser = ({ email, password}) =>{
-    axios.post(`${ROOT_URL}/signin`, {email, password})
+    //thunk returns a function with 'dispatch' as argument
+    return (dispatch) => {
+         axios.post(`${ROOT_URL}/signin`, {email, password})
             .then(response => {
                 console.log('signed in')
             })
-            
+    }           
 }

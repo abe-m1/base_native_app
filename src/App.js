@@ -13,9 +13,7 @@ class App extends Component {
         //3rd argument is for store enhancers 
         return(
             <Provider store={store}>
-                <View>
-                    <LoginForm />
-                </View>
+                <LoginForm />
             </Provider>
         )
     }
