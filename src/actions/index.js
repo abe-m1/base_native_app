@@ -19,9 +19,10 @@ export const passwordChanged = (text) =>{
 export const  loginUser = ({ email, password}) =>{
     //thunk returns a function with 'dispatch' as argument
     return (dispatch) => {
-         axios.post(`${ROOT_URL}/signin`, {email, password})
-            .then(response => {
-                console.log('signed in')
+         axios.post(`${ROOT_URL}/user/signin`, {email, password})
+            .then(user => {
+                dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user})
             })
+            .catch(error => console.log('returning error' ,error))
     }           
 }
