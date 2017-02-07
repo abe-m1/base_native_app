@@ -1,4 +1,4 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS } from './types'
+import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL } from './types'
 import axios from 'axios'
 const ROOT_URL = "http://localhost:5000"
 
@@ -21,7 +21,7 @@ export const  loginUser = ({ email, password}) =>{
     return (dispatch) => {
          axios.post(`${ROOT_URL}/user/signin`, {email, password})
             .then(user => loginUserSuccess(dispatch, user))
-            .catch(error => console.log('returning error' ,error))
+            .catch(() => loginUserFail())
     }           
 }
 
@@ -33,3 +33,8 @@ const loginUserSuccess = (dispatch, user ) =>{
     })
 } 
 
+const loginUserFail = (dispatch) =>{
+    dispatch({
+        type: LOGIN_USER_FAIL
+    })
+} 
