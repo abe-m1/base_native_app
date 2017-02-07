@@ -51,6 +51,7 @@ class LoginForm extends Component{
 
 const mapStateToProps = state =>{
     //only return the property from global state that we care about
+    console.log(state)
     return {
         email: state.auth.email,
         password: state.auth.password
