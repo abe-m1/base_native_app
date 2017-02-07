@@ -1,4 +1,5 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER } from './types'
+import { Actions } from 'react-native-router-flux'
 import axios from 'axios'
 const ROOT_URL = "http://localhost:5000"
 
@@ -33,6 +34,8 @@ const loginUserSuccess = (dispatch, user ) =>{
         type: LOGIN_USER_SUCCESS,
         payload: user
     })
+
+    Actions.employeeList()
 } 
 
 const loginUserFail = (dispatch) =>{
