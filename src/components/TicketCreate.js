@@ -5,6 +5,11 @@ import { ticketUpdate } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
 class TicketCreate extends Component{
+    onButtonPress(){
+        const { title, category, status } = this.props
+
+        this.props.ticketCreate({ title, category, status})
+    }
     render(){
         return(
             <Card>
@@ -40,7 +45,7 @@ class TicketCreate extends Component{
                 </CardSection>
 
                 <CardSection>
-                    <Button>
+                    <Button onPress={this.onButtonPress.bind(this)}>
                         Submit
                     </Button>
                 </CardSection>
