@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text } from 'react-native'
 import { Card, CardSection, Input,  Button, Spinner } from './common';
+import { emailChanged, passwordChanged, signupUser } from '../actions';
 
 
 class SignupForm extends Component{
@@ -48,4 +49,4 @@ const mapStateToProps = ({auth}) =>{
 }
 
 
-export default connect(mapStateToProps)(SignupForm);
+export default connect(mapStateToProps, {emailChanged, passwordChanged, signupUser})(SignupForm);
