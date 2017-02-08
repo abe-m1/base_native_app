@@ -58,6 +58,9 @@ class LoginForm extends Component{
                 <CardSection>
                     {this.renderButton()}
                 </CardSection>
+                <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+                    <Text>signup </Text>
+                </TouchableWithoutFeedback>
             </Card>
         )
     }
