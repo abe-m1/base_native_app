@@ -1,12 +1,33 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { Card, CardSection, Input, Button } from './common'
 
 class TicketCreate extends Component{
     render(){
         return(
-            <View>
-                <Text>Ticket Form</Text>
-            </View>
+            <Card>
+                <CardSection>
+                    <Input 
+                        label="Title"
+                        placeholder="Title"                   
+                    />
+                </CardSection>
+
+                <CardSection>
+                     <Input 
+                        label="Category"
+                        placeholder="Category"                   
+                    />
+                </CardSection>
+
+                <CardSection>
+                </CardSection>
+
+                <CardSection>
+                    <Button>
+                        Submit
+                    </Button>
+                </CardSection>
+            </Card>
         )
     }
 }

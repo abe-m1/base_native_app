@@ -16,7 +16,8 @@ const RouterComponent = () =>{
                        component={TicketList} 
                        onRight={()=> Actions.ticketCreate()}
                        rightTitle="add"
-                       title="list" />
+                       title="list" 
+                       initial/>
                 <Scene key="ticketCreate"
                        component={TicketCreate}
                        title="Create Ticket"                           
