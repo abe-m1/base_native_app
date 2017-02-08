@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Picker } from 'react-native'
+import { Picker, Text } from 'react-native'
 import { ticketUpdate } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
@@ -26,7 +26,8 @@ class TicketCreate extends Component{
                     />
                 </CardSection>
 
-                <CardSection>
+                <CardSection >
+                    <Text style={styles.pickerTextStyle} >Status</Text>
                     <Picker
                         style={{ flex: 1}}
                         selectedValue={this.props.status}
@@ -45,6 +46,13 @@ class TicketCreate extends Component{
                 </CardSection>
             </Card>
         )
+    }
+}
+
+const styles = {
+    pickerTextStyle: {
+        fontSize: 18,
+        paddingLeft: 20
     }
 }
 
