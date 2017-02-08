@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text } from 'react-native'
+import { Text, TouchableWithoutFeedback } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input,  Button, Spinner } from './common';
 
@@ -18,6 +19,11 @@ class LoginForm extends Component{
         this.props.loginUser({email, password})
         //expecting an object to be passed in
     }
+    onSignupPress(){
+            Actions.signup()
+            //whenever called , it will pass in 
+            //you can pass in additional props 
+        }
     renderButton(){
         if ( this.props.loading){
             return <Spinner size="large" />
@@ -58,7 +64,7 @@ class LoginForm extends Component{
                 <CardSection>
                     {this.renderButton()}
                 </CardSection>
-                <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
+                <TouchableWithoutFeedback onPress={this.onSignupPress.bind(this)}>
                     <Text>signup </Text>
                 </TouchableWithoutFeedback>
             </Card>
