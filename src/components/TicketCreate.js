@@ -10,14 +10,18 @@ class TicketCreate extends Component{
                 <CardSection>
                     <Input 
                         label="Title"
-                        placeholder="Title"                   
+                        placeholder="Title"
+                        value={this.props.title}
+                        onChangeText={text => this.props.ticketUpdate({prop:'title', value: text})}                  
                     />
                 </CardSection>
 
                 <CardSection>
                      <Input 
                         label="Category"
-                        placeholder="Category"                   
+                        placeholder="Category"
+                        value={this.props.category}
+                        onChangeText={text => this.props.ticketUpdate({prop:'category', value: text})}                  
                     />
                 </CardSection>
 
@@ -37,7 +41,7 @@ class TicketCreate extends Component{
 const mapStateToProps = state =>{
     const { title, category, status } = state.ticketForm
 
-    return{ name, phone, shift }
+    return{ title, category, status }
 }
 
-export default connect(mapStateToProps, { employeeUpdate })(TicketCreate)
+export default connect(mapStateToProps, { ticketUpdate })(TicketCreate)
