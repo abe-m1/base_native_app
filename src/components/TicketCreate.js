@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { ticketUpdate } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
 class TicketCreate extends Component{
@@ -32,4 +34,10 @@ class TicketCreate extends Component{
     }
 }
 
-export default TicketCreate
+const mapStateToProps = state =>{
+    const { title, category, status } = state.ticketForm
+
+    return{ name, phone, shift }
+}
+
+export default connect(mapStateToProps, { employeeUpdate })(TicketCreate)
