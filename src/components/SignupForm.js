@@ -37,5 +37,15 @@ class SignupForm extends Component{
     }
 }
 
+const mapStateToProps = ({auth}) =>{
+   const { email, password, error, loading } = auth
+    return {     
+        email: email,
+        password: password,
+        error: error,
+        loading: loading
+    }
+}
 
-export default SignupForm
+
+export default connect(mapStateToProps)(SignupForm);
