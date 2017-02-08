@@ -1,6 +1,7 @@
 import React from 'react'
 import { Scene , Router, Actions } from 'react-native-router-flux'
 import LoginForm from './components/LoginForm'
+import SignupForm from './components/SignupForm'
 import TicketList from './components/TicketList'
 import TicketCreate from './components/TicketCreate'
 
@@ -9,6 +10,7 @@ const RouterComponent = () =>{
         <Router sceneStyle={{ paddingTop: 65}}>
             <Scene key="auth">
                 <Scene key="login" component={LoginForm} title="please login" initial/>
+                <Scene key="signup" component={SignupForm} title="please signup" initial/>
             </Scene>
 
             <Scene key="main">
