@@ -9,7 +9,30 @@ class SignupForm extends Component{
 
     render(){
         return(
-           <Text> Sign up form </Text>
+            <Card>
+                <CardSection>
+                    <Input 
+                        label="Email"
+                        placeholder="email@email.com"
+                        
+                    />
+                </CardSection>
+
+                <CardSection>
+                    <Input 
+                        secureTextEntry
+                        label="Password"
+                        placeholder="password"
+                        
+                    />
+                </CardSection>
+
+                
+
+                <CardSection>
+                    {this.renderButton()}
+                </CardSection>
+            </Card>
         )
     }
 }
