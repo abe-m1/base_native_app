@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Picker } from 'react-native'
 import { ticketUpdate } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
@@ -26,6 +27,15 @@ class TicketCreate extends Component{
                 </CardSection>
 
                 <CardSection>
+                    <Picker
+                        style={{ flex: 1}}
+                        selectedValue={this.props.status}
+                        onValueChange={status => this.props.ticketUpdate({prop: 'status', value: status})}
+                        >
+                        <Picker.Item label="new" value="new" />
+                        <Picker.Item label="in_process" value="in_process" />
+                        <Picker.Item label="completed" value="completed" />
+                    </Picker>
                 </CardSection>
 
                 <CardSection>
