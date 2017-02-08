@@ -28,6 +28,18 @@ export const  loginUser = ({ email, password}) =>{
     }           
 }
 
+
+export const  signupUser = ({ email, password}) =>{
+    //thunk returns a function with 'dispatch' as argument
+    return (dispatch) => {
+        //show spinner
+        dispatch({ type: LOGIN_USER})
+         axios.post(`${ROOT_URL}/user`, {email, password})
+            .then(user => loginUserSuccess(dispatch, user))
+            .catch(() => loginUserFail(dispatch))
+    }           
+}
+
 //helper function
 const loginUserSuccess = (dispatch, user ) =>{
     dispatch({
