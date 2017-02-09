@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Picker, Text } from 'react-native'
-import { ticketUpdate } from '../actions'
+import { ticketUpdate, ticketCreate } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
 class TicketCreate extends Component{
     onButtonPress(){
+        console.log(this.props )
         const { title, category, status } = this.props
 
-        this.props.ticketCreate({ title, category, status})
+         this.props.ticketCreate({ title, category, status: status || 'new'})
     }
     render(){
         return(
@@ -67,4 +68,4 @@ const mapStateToProps = state =>{
     return{ title, category, status }
 }
 
-export default connect(mapStateToProps, { ticketUpdate })(TicketCreate)
+export default connect(mapStateToProps, { ticketUpdate, ticketCreate })(TicketCreate)

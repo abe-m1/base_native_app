@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, TouchableWithoutFeedback } from 'react-native'
+import { Text, View, TouchableWithoutFeedback } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input,  Button, Spinner } from './common';
@@ -65,7 +65,11 @@ class LoginForm extends Component{
                     {this.renderButton()}
                 </CardSection>
                 <TouchableWithoutFeedback onPress={this.onSignupPress.bind(this)}>
-                    <Text>Sign Up </Text>
+                    <View>
+                        <Text>
+                        Sign Up 
+                        </Text>
+                    </View>
                 </TouchableWithoutFeedback>
             </Card>
         )
