@@ -44,6 +44,14 @@ export const  signupUser = ({ email, password}) =>{
 //helper function
 const loginUserSuccess = (dispatch, user ) =>{
     console.log('user', user.data.token)
+    AsyncStorage.setItem('token', user.data.token, () => {
+  
+    AsyncStorage.getItem('token', (err, result) => {
+      console.log('asyn', result);
+    })
+    })
+    
+
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user
