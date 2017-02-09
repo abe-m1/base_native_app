@@ -13,12 +13,20 @@ export const ticketUpdate = ({ prop, value}) =>{
 
 export function ticketCreate({ title, category, status}){
     console.log('hello', title, category, status)
-    
-    return function(dispatch){
+  
+    return function(dispatch){     
 
-         axios.post(`${ROOT_URL}/ticket`, { title, category, status })
+         axios.post(`${ROOT_URL}/ticket`, 
+                    { title, category, status }, 
+                    { headers: {authorization:  
+                            AsyncStorage.getItem('token', (err, token) => {
+                                return token
+                            }) }})
+        
              .then(response =>{ console.log(response)})
              .catch(response => console.log(response))
     }
 
 }
+
+
