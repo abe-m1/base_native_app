@@ -1,5 +1,6 @@
 import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER } from './types'
 import { Actions } from 'react-native-router-flux'
+import { AsyncStorage } from 'react-native'
 import axios from 'axios'
 const ROOT_URL = "http://localhost:5000"
 
@@ -42,6 +43,7 @@ export const  signupUser = ({ email, password}) =>{
 
 //helper function
 const loginUserSuccess = (dispatch, user ) =>{
+    console.log('user', user.data.token)
     dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: user
