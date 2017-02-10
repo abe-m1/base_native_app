@@ -1,5 +1,6 @@
 import { TICKET_UPDATE } from './types'
 import axios from 'axios'
+import { Actions } from 'react-native-router-flux'
 import { AsyncStorage } from 'react-native'
 const ROOT_URL = "http://localhost:5000"
 
@@ -24,7 +25,9 @@ export function ticketCreate({ title, category, status}){
                             }) 
          
         
-             .then(response =>{ console.log(response)})
+             .then(response =>{ console.log(response)
+                Actions.main()
+            })
              .catch(response => console.log(response))
     }
 
@@ -45,6 +48,7 @@ export function ticketCreate({ title, category, status}){
                     type: GET_TICKETS,
                     payload: response.data.ticket
                 })
+                
              })
              .catch(response => console.log(response))
      }
