@@ -15,7 +15,7 @@ export function ticketCreate({ title, category, status}){
     console.log('hello', title, category, status)
   
     return function(dispatch){     
-AsyncStorage.getItem('token', (err, token) => {
+            AsyncStorage.getItem('token', (err, token) => {
                                 console.log('inside token', token)
                                 axios.post(`${ROOT_URL}/ticket`, 
                     { title, category, status }, 
@@ -29,5 +29,20 @@ AsyncStorage.getItem('token', (err, token) => {
     }
 
 }
+
+
+
+ export function getTickets(){
+     return function(dispatch){
+        
+        AsyncStorage.getItem('token', (err, token) => {
+                       axios.get(`${ ROOT_URL}/ticket`, { headers: {'token':  token }})
+         }) 
+         
+        
+             .then(response =>{ console.log(response)})
+             .catch(response => console.log(response))
+     }
+ }
 
 
