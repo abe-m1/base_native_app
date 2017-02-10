@@ -40,7 +40,12 @@ export function ticketCreate({ title, category, status}){
          }) 
          
         
-             .then(response =>{ console.log(response)})
+             .then(response => {
+                dispatch({
+                    type: GET_TICKETS,
+                    payload: response.data.ticket
+                })
+             })
              .catch(response => console.log(response))
      }
  }
