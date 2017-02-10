@@ -22,13 +22,16 @@ export function ticketCreate({ title, category, status}){
                     { title, category, status }, 
                     { headers: {'token':  token
                             }})
+                            .then(response =>{ 
+                                console.log('this is the response',response)
+                                Actions.ticketList()
+                                console.log('action shold be called')
+            })
+             .catch(response => console.log(response))
                             }) 
          
         
-             .then(response =>{ console.log(response)
-                Actions.main()
-            })
-             .catch(response => console.log(response))
+    
     }
 
 }
