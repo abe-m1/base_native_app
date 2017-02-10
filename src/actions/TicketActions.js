@@ -24,7 +24,7 @@ export function ticketCreate({ title, category, status}){
                             }})
                             .then(response =>{ 
                                 console.log('this is the response',response)
-                                Actions.ticketList()
+                                Actions.ticketList({ type: 'reset'})
                                 console.log('action shold be called')
             })
              .catch(response => console.log(response))
