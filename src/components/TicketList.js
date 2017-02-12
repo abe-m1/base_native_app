@@ -19,5 +19,11 @@ class TicketList extends Component {
     }
 }
 
+const mapStateToProps = state =>{
 
-export default connect(null, { getTickets })(TicketList)
+    console.log('state', state.tickets)
+    return {}
+}
+
+
+export default connect(mapStateToProps, { getTickets })(TicketList)
