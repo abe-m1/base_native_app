@@ -1,4 +1,4 @@
-import { TICKET_UPDATE } from './types'
+import { TICKET_UPDATE, GET_TICKETS } from './types'
 import axios from 'axios'
 import { Actions } from 'react-native-router-flux'
 import { AsyncStorage } from 'react-native'
@@ -43,17 +43,16 @@ export function ticketCreate({ title, category, status}){
         
         AsyncStorage.getItem('token', (err, token) => {
                        axios.get(`${ ROOT_URL}/ticket`, { headers: {'token':  token }})
-         }) 
-         
-        
-             .then(response => {
-                dispatch({
+                            .then(response => {
+                                console.log(response)
+                                dispatch({
                     type: GET_TICKETS,
-                    payload: response.data.ticket
+                    payload: response.data
                 })
                 
              })
              .catch(response => console.log(response))
+         }) 
      }
  }
 

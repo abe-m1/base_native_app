@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { getTickets } from '../actions';
 
 class TicketList extends Component {
+    componentWillMount(){
+        this.props.getTickets()
+    }
     render(){
         return(
             <View>
