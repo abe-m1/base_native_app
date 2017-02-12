@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
+import { getTickets } from '../actions';
 
 class TicketList extends Component {
     render(){
@@ -16,4 +17,4 @@ class TicketList extends Component {
 }
 
 
-export default connect(null, {  })(TicketList)
+export default connect(null, { getTickets })(TicketList)
