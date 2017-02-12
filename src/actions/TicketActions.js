@@ -44,10 +44,10 @@ export function ticketCreate({ title, category, status}){
         AsyncStorage.getItem('token', (err, token) => {
                        axios.get(`${ ROOT_URL}/ticket`, { headers: {'token':  token }})
                             .then(response => {
-                                console.log(response)
+                                console.log(response.data.obj)
                                 dispatch({
                     type: GET_TICKETS,
-                    payload: response.data
+                    payload: response.data.obj
                 })
                 
              })
