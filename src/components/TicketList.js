@@ -8,6 +8,7 @@ class TicketList extends Component {
         this.props.getTickets()
     }
     render(){
+        console.log(this.props.tickets)
         return(
             <View>
                 <Text>hello</Text>
@@ -22,7 +23,9 @@ class TicketList extends Component {
 const mapStateToProps = state =>{
 
     console.log('state', state.tickets)
-    return {}
+    return {
+        tickets: state.tickets
+    }
 }
 
 
