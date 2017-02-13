@@ -6,12 +6,16 @@ import { getTickets } from '../actions';
 class TicketList extends Component {
     componentWillMount(){
         this.props.getTickets()
-        this.createDataSource(this.props)
+        // this.createDataSource(this.props)
+        console.log('render tickets1',this.props)
     }
 
-    componentWillReceiveProps(nextProps){
-        this.createDataSource(nextProps)
-    }
+     componentWillReceiveProps (props) {
+        
+        console.log('reciev', props)
+        
+
+     }
 
     createDataSource({ tickets}){
          //destructure this.props
@@ -24,15 +28,15 @@ class TicketList extends Component {
     }
 
     renderRow(ticket){
-        return <ListItem ticket={ticket} />
+        return <ListItem tick={tick} />
        
     }
     
     render(){
-        console.log('render tickets',this.props.tickets)
+        
         return(
             <View>
-                <Text>{2+2}</Text>
+                <Text>hello</Text>
             </View>
         )
     }
@@ -42,7 +46,7 @@ const mapStateToProps = state =>{
 
     console.log('state', state)
     return {
-        tickets: state.tickets
+        tick: state.tickets.tickets
     }
 }
 

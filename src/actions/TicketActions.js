@@ -1,4 +1,4 @@
-import { TICKET_UPDATE, GET_TICKETS } from './types'
+import {  GET_TICKETS } from './types'
 import axios from 'axios'
 import { Actions } from 'react-native-router-flux'
 import { AsyncStorage } from 'react-native'
