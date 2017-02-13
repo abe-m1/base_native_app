@@ -29,13 +29,10 @@ class TicketList extends Component {
     }
     
     render(){
-        console.log(this.props.tickets)
+        console.log('render tickets',this.props.tickets)
         return(
             <View>
-                <Text>hello</Text>
-                 <Text>hello</Text>
-                  <Text>hello</Text>
-                   <Text>hello</Text>
+                <Text>{2+2}</Text>
             </View>
         )
     }
@@ -43,7 +40,7 @@ class TicketList extends Component {
 
 const mapStateToProps = state =>{
 
-    console.log('state', state.tickets)
+    console.log('state', state)
     return {
         tickets: state.tickets
     }
